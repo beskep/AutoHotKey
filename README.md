@@ -1,0 +1,3 @@
+# AutoHotKey
+
+Personal AHK script.
