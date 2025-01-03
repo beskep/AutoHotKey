@@ -77,19 +77,19 @@ TimeoutTrayTip(text, title := '', option := '', time := 1000) {
 #HotIf hotstrings
 {
     ; general
-    :?*:\degc\::℃
-    :?*:\endash\::–
-    :?*:\emdash\::—
-    :?*:\cdot\::⋅
-    :?*:\dots\::…
-    :?*:\cdots\::⋯
-    :?*:\vdots\::⋮
-    :?*:\bullet\::∙
-    :?*:\circ\::∘
+    :?*:\ndash\::–
+    :?*:\mdash\::—
+    :?*:\horbar\::―
+    :?*:\middot\::·
+    :?*:\bullet\::•
+    :?*:\laquo\::«
+    :?*:\raquo\::»
+    :?*:\cross\::⨯
     :?*:\check\::✓
+    :?*:\bulletop\::∙
+    :?*:\degc\::℃
     :?*:\heavycheck\::✔
     :?*:\heavymul\::✖
-    :?*:\product\::⨯
     :?*:\ballotbox\::☐
     :?*:\ballotcheck\::☑
     :?*:\ballotboldcheck\::🗹
@@ -247,6 +247,12 @@ TimeoutTrayTip(text, title := '', option := '', time := 1000) {
     :?*:\subseteq\::⊆
     :?*:\supset\::⊃
     :?*:\supseteq\::⊇
+    :?*:\cdot\::⋅
+    :?*:\ldots\::…
+    :?*:\cdots\::⋯
+    :?*:\vdots\::⋮
+    :?*:\ddots\::⋱
+    :?*:\circ\::∘
 }
 
 #HotIf wheel_down != 'None'
