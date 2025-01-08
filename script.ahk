@@ -86,8 +86,13 @@ TimeoutTrayTip(text, title := '', option := '', time := 1000) {
     :?*:\raquo\::»
     :?*:\cross\::⨯
     :?*:\check\::✓
+    :?*:\mdot\::·
     :?*:\bulletop\::∙
     :?*:\degc\::℃
+    :?*:\lcb\::「
+    :?*:\rcb\::」
+    :?*:\lwcb\::『
+    :?*:\rwcb\::』
     :?*:\heavycheck\::✔
     :?*:\heavymul\::✖
     :?*:\ballotbox\::☐
@@ -220,6 +225,7 @@ TimeoutTrayTip(text, title := '', option := '', time := 1000) {
     :?*:\approx\::≈
     :?*:\approxeq\::≊
     :?*:\simeq\::≃
+    :?*:\cong\::≅
     :?*:\ge\::≥
     :?*:\gt\::>
     :?*:\gg\::≫
@@ -253,6 +259,7 @@ TimeoutTrayTip(text, title := '', option := '', time := 1000) {
     :?*:\vdots\::⋮
     :?*:\ddots\::⋱
     :?*:\circ\::∘
+
 }
 
 #HotIf wheel_down != 'None'

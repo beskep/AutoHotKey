@@ -8,7 +8,7 @@
 ndash  = '–'
 mdash  = '—'
 horbar = '―' # Horizontal Bar (U+2015), quotation dash
-middot = '·'
+middot = '·' # Middle Dot (U+00B7)
 bullet = '•' # Bullet (U+2022)
 laquo  = '«'
 raquo  = '»'
@@ -16,8 +16,13 @@ cross  = '⨯' # Vector Or Cross Product (U+2A2F)
 check  = '✓' # Check Mark (U+2713)
 
 # Custom
+mdot     = '·' # Middle Dot (U+00B7)
 bulletop = '∙' # Bullet Operator (U+2219)
 degc     = '℃'
+lcb      = '「' # Left Corner Bracket (U+300C)
+rcb      = '」' # Right Corner Bracket (U+300D)
+lwcb     = '『' # Left White Corner Bracket (U+300E)
+rwcb     = '』' # Right White Corner Bracket (U+300F)
 
 heavycheck      = '✔' # Heavy Check Mark (U+2714)
 heavymul        = '✖' # Heavy Multiplication X (U+2716)
@@ -159,6 +164,7 @@ neq      = '≠'
 approx   = '≈'
 approxeq = '≊'
 simeq    = '≃'
+cong     = '≅'
 ge       = '≥'
 gt       = '>'
 gg       = '≫'
@@ -189,9 +195,9 @@ subseteq = '⊆'
 supset   = '⊃'
 supseteq = '⊇'
 
-cdot  = '⋅' # dot operator
+cdot  = '⋅' # Dot Operator (U+22C5)
 ldots = '…'
 cdots = '⋯'
 vdots = '⋮'
 ddots = '⋱'
-circ  = '∘'
+circ  = '∘' # Ring Operator (U+2218)
