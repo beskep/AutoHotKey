@@ -72,11 +72,21 @@ TimeoutTrayTip(text, title := '', option := '', time := 1000) {
     {
         Send FormatTime(, "yyyy-MM-dd HH:mm:ss")
     }
+    :?*:\nowb\::
+    {
+        ; basic format
+        Send FormatTime(, "yyyyMMddTHHmmss")
+    }
+    :?*:\nowc\::
+    {
+        ; 콜론 제외
+        Send FormatTime(, "yyyy-MM-ddTHHmmss")
+    }
 }
 
 #HotIf hotstrings
 {
-    ; general
+        ; general
     :?*:\ndash\::–
     :?*:\mdash\::—
     :?*:\horbar\::―
