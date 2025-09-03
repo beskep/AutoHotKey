@@ -14,4 +14,4 @@ quote-style = "single"
 
 [tool.ruff.lint]
 select = ["ALL"]
-ignore = ["D", "Q"]
+ignore = ["COM", "D", "Q"]
