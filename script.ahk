@@ -66,21 +66,21 @@ TimeoutTrayTip(text, title := '', option := '', time := 1000) {
     ; Hotstring
     :?*:\today\::
     {
-        Send FormatTime(, "yyyy-MM-dd")
+        SendText FormatTime(, "yyyy-MM-dd")
     }
     :?*:\now\::
     {
-        Send FormatTime(, "yyyy-MM-dd HH:mm:ss")
+        SendText FormatTime(, "yyyy-MM-dd HH:mm:ss")
     }
     :?*:\nowb\::
     {
         ; basic format
-        Send FormatTime(, "yyyyMMddTHHmmss")
+        SendText FormatTime(, "yyyyMMdd'T'HHmmss")
     }
     :?*:\nowc\::
     {
         ; 콜론 제외
-        Send FormatTime(, "yyyy-MM-ddTHHmmss")
+        SendText FormatTime(, "yyyy-MM-dd'T'HHmmss")
     }
 }
 
