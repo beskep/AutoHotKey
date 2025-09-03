@@ -79,8 +79,8 @@ TimeoutTrayTip(text, title := '', option := '', time := 1000) {
     }
     :?*:\nowc\::
     {
-        ; 콜론 제외
-        SendText FormatTime(, "yyyy-MM-dd'T'HHmmss")
+        ; 콜론 제외 (파일명에 사용)
+        SendText FormatTime(, "yyyy-MM-dd HHmmss")
     }
 }
 
