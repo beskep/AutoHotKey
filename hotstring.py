@@ -59,4 +59,4 @@ if __name__ == '__main__':
     script = Path('script.ahk')
 
     hg = HotstringGroups(tomllib.loads(config.read_text()))
-    script.write_text(template.read_text().replace(';{hotstrings}', str(hg)))
+    script.write_text(template.read_text().replace('    ;{hotstrings}', str(hg)))

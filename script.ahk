@@ -86,7 +86,7 @@ TimeoutTrayTip(text, title := '', option := '', time := 1000) {
 
 #HotIf hotstrings
 {
-        ; general
+    ; general
     :?*:\ndash\::–
     :?*:\mdash\::—
     :?*:\horbar\::―
