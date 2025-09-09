@@ -270,6 +270,9 @@ TimeoutTrayTip(text, title := '', option := '', time := 1000) {
     :?*:\ddots\::⋱
     :?*:\circ\::∘
 
+    ; etc
+    :?*:\shrug\::¯\_(ツ)_/¯
+
 }
 
 #HotIf wheel_down != 'None'

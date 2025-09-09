@@ -201,3 +201,6 @@ cdots = '⋯'
 vdots = '⋮'
 ddots = '⋱'
 circ  = '∘' # Ring Operator (U+2218)
+
+[etc]
+shrug = '¯\_(ツ)_/¯'
