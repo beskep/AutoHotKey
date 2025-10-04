@@ -57,6 +57,10 @@ if __name__ == '__main__':
     config = Path('hotstring.toml')
     template = Path('script.template.ahk')
     script = Path('script.ahk')
+    encoding = 'utf-8'
 
-    hg = HotstringGroups(tomllib.loads(config.read_text()))
-    script.write_text(template.read_text().replace('    ;{hotstrings}', str(hg)))
+    hg = HotstringGroups(tomllib.loads(config.read_text(encoding)))
+    script.write_text(
+        template.read_text(encoding).replace('    ;{hotstrings}', str(hg)),
+        encoding=encoding,
+    )
