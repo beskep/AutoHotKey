@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import tomllib
+import unicodedata
 from pathlib import Path
 from typing import TYPE_CHECKING
 
@@ -22,9 +23,31 @@ class Hotstrings:
         self.prefix = prefix
         self.suffix = suffix or ''
 
+    def comment(self, c: str) -> str:
+        if len(c) != 1:
+            return ''
+
+        return f'  ; U+{ord(c):04X} {unicodedata.name(c)}'
+
+    def __call__(
+        self,
+        src: str,
+        dst: str,
+        *,
+        comment: bool,
+        pad: int | None = None,
+    ) -> str:
+        txt = f':{self.option}:{self.prefix}{src}{self.suffix}::{dst}'
+        if comment:
+            if pad:
+                txt = f'{txt:{pad}}'
+            txt += self.comment(dst)
+        return txt
+
     def __iter__(self) -> Iterator[str]:
+        pad = max(len(self(*x, comment=False)) for x in self.v.items())
         for src, dst in self.v.items():
-            yield f':{self.option}:{self.prefix}{src}{self.suffix}::{dst}'
+            yield self(src, dst, pad=pad, comment=True)
 
 
 class HotstringGroups:
