@@ -130,7 +130,7 @@ TimeoutTrayTip(text, title := '', option := '', time := 1000) {
     :?*:\sup-::⁻  ; U+207B SUPERSCRIPT MINUS
     :?*:\sup(::⁽  ; U+207D SUPERSCRIPT LEFT PARENTHESIS
     :?*:\sup)::⁾  ; U+207E SUPERSCRIPT RIGHT PARENTHESIS
-    :?*:\sub0::⁰  ; U+2070 SUPERSCRIPT ZERO
+    :?*:\sub0::₀  ; U+2080 SUBSCRIPT ZERO
     :?*:\sub1::₁  ; U+2081 SUBSCRIPT ONE
     :?*:\sub2::₂  ; U+2082 SUBSCRIPT TWO
     :?*:\sub3::₃  ; U+2083 SUBSCRIPT THREE
