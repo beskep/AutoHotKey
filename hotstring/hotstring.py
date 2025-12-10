@@ -1,12 +1,14 @@
-from __future__ import annotations
-
+import shutil
 import tomllib
 import unicodedata
 from pathlib import Path
 from typing import TYPE_CHECKING
 
+import cyclopts
+import msgspec
+
 if TYPE_CHECKING:
-    from collections.abc import Iterator
+    from collections.abc import Generator, Iterator
 
 
 class Hotstrings:
@@ -76,14 +78,61 @@ class HotstringGroups:
         return '\n'.join(f'    {x}' if x else '' for x in self)
 
 
-if __name__ == '__main__':
-    config = Path('hotstring.toml')
-    template = Path('script.template.ahk')
-    script = Path('script.ahk')
-    encoding = 'utf-8'
+app = cyclopts.App()
 
+
+@app.command
+def ahk(
+    config: Path | None = None,
+    *,
+    template: Path = Path('script.template.ahk'),
+    script: Path = Path('script.ahk'),
+    encoding: str = 'utf-8',
+    hotstring: bool = False,
+) -> None:
+    if not hotstring:
+        shutil.copy2(template, script)
+        return
+
+    config = config or Path(__file__).parent / 'hotstring.toml'
     hg = HotstringGroups(tomllib.loads(config.read_text(encoding)))
     script.write_text(
         template.read_text(encoding).replace('    ;{hotstrings}', str(hg)),
         encoding=encoding,
     )
+
+
+def _espanso(group: str, matches: dict[str, str]) -> Generator[dict[str, str]]:
+    t = '\\' if group in {'latex', 'greek', 'subscript', 'superscript'} else ':'
+    for trigger, replace in matches.items():
+        yield {
+            'trigger': f'{t}{trigger}{t}',
+            'replace': replace,
+            'label': f'{replace} U+{ord(replace):04X} {unicodedata.name(replace)}'
+            if len(replace) == 1
+            else replace,
+        }
+
+
+@app.command
+def espanso(
+    config: Path | None = None,
+    encoding: str = 'utf-8',
+) -> None:
+    config = config or Path(__file__).parent / 'hotstring.toml'
+    data = msgspec.toml.decode(
+        config.read_text(encoding), type=dict[str, dict[str, str]]
+    )
+
+    output = Path('espanso')
+    output.mkdir(exist_ok=True)
+    output.joinpath('.gitignore').write_text('*')
+
+    for group, matches in data.items():
+        yaml = output / f'{group}.yaml'
+        buf = msgspec.yaml.encode({'matches': list(_espanso(group, matches))})
+        yaml.write_bytes(buf)
+
+
+if __name__ == '__main__':
+    app()

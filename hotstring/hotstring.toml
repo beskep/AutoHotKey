@@ -37,7 +37,9 @@ dtriangle   = '▽'
 ltriangle   = '◃'
 rtriangle   = '▹'
 
-[subscript_superscript]
+shrug = '¯\_(ツ)_/¯'
+
+[superscript]
 sup0   = '⁰'
 sup1   = '¹'
 sup2   = '²'
@@ -50,9 +52,11 @@ sup8   = '⁸'
 sup9   = '⁹'
 'sup+' = '⁺'
 'sup-' = '⁻'
+'sup=' = '⁼'
 'sup(' = '⁽'
 'sup)' = '⁾'
 
+[subscript]
 sub0   = '₀'
 sub1   = '₁'
 sub2   = '₂'
@@ -65,6 +69,7 @@ sub8   = '₈'
 sub9   = '₉'
 'sub+' = '₊'
 'sub-' = '₋'
+'sub=' = '₌'
 'sub(' = '₍'
 'sub)' = '₎'
 
@@ -223,6 +228,3 @@ c17 = '⑰'
 c18 = '⑱'
 c19 = '⑲'
 c20 = '⑳'
-
-[etc]
-shrug = '¯\_(ツ)_/¯'
