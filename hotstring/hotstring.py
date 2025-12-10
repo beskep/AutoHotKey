@@ -102,15 +102,12 @@ def ahk(
     )
 
 
-def _espanso(group: str, matches: dict[str, str]) -> Generator[dict[str, str]]:
-    t = '\\' if group in {'latex', 'greek', 'subscript', 'superscript'} else ':'
-    for trigger, replace in matches.items():
+def _espanso(trigger: str, matches: dict[str, str]) -> Generator[dict[str, str]]:
+    for t, r in matches.items():
         yield {
-            'trigger': f'{t}{trigger}{t}',
-            'replace': replace,
-            'label': f'{replace} U+{ord(replace):04X} {unicodedata.name(replace)}'
-            if len(replace) == 1
-            else replace,
+            'trigger': f'{trigger}{t}{trigger}',
+            'replace': r,
+            'label': f'{r} U+{ord(r):04X} {unicodedata.name(r)}' if len(r) == 1 else r,
         }
 
 
@@ -118,6 +115,7 @@ def _espanso(group: str, matches: dict[str, str]) -> Generator[dict[str, str]]:
 def espanso(
     config: Path | None = None,
     encoding: str = 'utf-8',
+    trigger: str = '\\',
 ) -> None:
     config = config or Path(__file__).parent / 'hotstring.toml'
     data = msgspec.toml.decode(
@@ -129,8 +127,8 @@ def espanso(
     output.joinpath('.gitignore').write_text('*')
 
     for group, matches in data.items():
-        yaml = output / f'{group}.yaml'
-        buf = msgspec.yaml.encode({'matches': list(_espanso(group, matches))})
+        yaml = output / f'custom_{group}.yaml'
+        buf = msgspec.yaml.encode({'matches': list(_espanso(trigger, matches))})
         yaml.write_bytes(buf)
 
 
