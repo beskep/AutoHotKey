@@ -54,9 +54,9 @@ TimeoutTrayTip(text, title := '', option := '', time := 1000) {
     XButton2:: Send '^{w}'
 
     ; Alt control
-    !i:: Send '{Up}'
-    !k:: Send '{Down}'
-    !j:: Send '{Left}'
+    !h:: Send '{Left}'
+    !j:: Send '{Down}'
+    !k:: Send '{Up}'
     !l:: Send '{Right}'
 
     ; Volume
